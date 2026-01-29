@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 def test1() -> int:
     return 1
 

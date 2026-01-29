@@ -6,7 +6,7 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.providers.cncf.kubernetes.operators.pod import KubernetesPodOperator
 
-from utils_module.utils import test1, test2
+from utils_module.utils import test1
 
 with DAG(
     dag_id="demo_kubernetes_pod_operator",
