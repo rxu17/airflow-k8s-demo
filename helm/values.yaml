@@ -1,0 +1,26 @@
+# Keep it simple for a demo
+executor: LocalExecutor
+
+# OK for local demo; for real deployments, use external Postgres.
+postgresql:
+  enabled: true
+
+images:
+  airflow:
+    repository: airflow-k8s-demo
+    tag: "local"
+
+# Expose the UI on http://localhost:8080 via kind port mapping
+webserver:
+  service:
+    type: NodePort
+    ports:
+      - name: airflow-ui
+        port: 8080
+        targetPort: 8080
+        nodePort: 30080
+
+# We're baking DAGs into the image for parity; turn off gitSync
+dags:
+  gitSync:
+    enabled: false
